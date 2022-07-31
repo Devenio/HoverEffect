@@ -1,0 +1,58 @@
+/* Define Variables */
+:root {
+    --text: #2b3044;
+    --line: #bbc1e1;
+    --line-active: #275efe;
+}
+
+* {
+    box-sizing: border-box;
+}
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f8ff;
+    font-family: "Inter", Arial;
+}
+
+p {
+    font-size: 18px;
+    margin: 0;
+    color: var(--text);
+}
+p a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    margin: 0 var(--spacing, 0px);
+    transition: all 0.25s;
+}
+p a svg {
+    width: 76px;
+    height: 45px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 10px) translateZ(0);
+    fill: none;
+    /* https://css-tricks.com/svg-properties-and-css/ */
+    stroke: var(--stroke, var(--line));
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke-dasharray: var(--offset, 69px) 278px;
+    stroke-dashoffset: 361px;
+    transition: stroke 0.25s ease var(--stroke-delay, 0s), stroke-dasharray 0.35s;
+}
+p a:hover {
+    --spacing: 4px;
+    --stroke: var(--line-active);
+    --stroke-delay: 0.1s;
+    --offset: 180px;
+}
